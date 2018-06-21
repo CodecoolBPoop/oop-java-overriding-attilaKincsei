@@ -7,21 +7,16 @@ package com.codecool.uml.overriding;
  * */
 public class Webshop {
 
-    private static Order orderNo1 = new Order();
-    // TODO: why cannot invoke methods defined only in the subclass?
-    // How to getStatus() of object of orderable type
-    // Also: how do you call this?
     private static Orderable orderableNo1 = new Order();
 
     private static void testProcess() {
         AbstractProcess checkoutOne = new CheckoutProcess();
         AbstractProcess paymentOne = new PaymentProcess();
-        System.out.println(orderNo1.getStatus());
-        checkoutOne.process(orderNo1);
-        System.out.println(orderNo1.getStatus());
-        paymentOne.process(orderNo1);
-        System.out.println(orderNo1.getStatus());
-
+        System.out.println(((Order) orderableNo1).getStatus());
+        checkoutOne.process(orderableNo1);
+        System.out.println(((Order) orderableNo1).getStatus());
+        paymentOne.process(orderableNo1);
+        System.out.println(((Order) orderableNo1).getStatus());
     }
 
 
